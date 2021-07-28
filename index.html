@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>平安成电智慧通行</title>
+</head>
+
+<body bgcolor=#f8f8f8  onload="load()">
+	<div style="background-color: #ffffff;margin-top: 0;margin-left: 0;margin-right: 0;">
+	<div>
+<br>
+<br>
+<!-- <div align="middle" width="100%"><img src="https://not-my.life/bar.png" width="100%"></div>
+<br>
+<br> -->
+<button onclick="inOrOut()" style="background:transparent;outline:none;border-width:0px;">
+<span id= "direction" style="font-weight: bold; padding-left: 5px; color: green; font-size: 24px; width: 100%; display: inline-block;"> 本科用户，入校登记成功！</span>
+</button>
+<br>
+<br>
+<br>
+</div>
+<hr color="#D5D5D5" size="1px">
+<table width="100%" border="0" cellspacing="7" style="background-color: #ffffff;">
+    <tr>
+        <td align="left" width="20"><img src="https://not-my.life/icon1.png" width="24" height="24"></td>
+        <td align="left">用户姓名</td>
+        <td align="right"><button onclick="editName()" style="background:transparent;outline:none;border-width:0px;"><span id="name" style="font-weight: bold; color: black; font-size: 24px; width: 100%; display: inline-block;">杨静怡</span></button></td>
+    </tr>
+    <tr>
+        <td align="left" width="20"><img src="https://not-my.life/icon2.png" width="24" height="30"></td>
+        <td align="left">登记类型</td>
+        <td align="right"><button onclick="changeType()" style="background:transparent;outline:none;border-width:0px;"><span id="type" style="font-weight: bold; color: black; font-size: 24px; width: 100%; display: inline-block;">本科生</span></button></td>
+    </tr>
+    <tr>
+        <td align="left" width="20"><img src="https://not-my.life/icon3.png" width="24" height="24"></td>
+        <td align="left">登记时间</td>
+        <td align="right"><div style="width: 180px;">
+		<button onclick="changeDate()" style="background:transparent;outline:none;border-width:0px;">
+            <marquee scrollamount="3"><span id=date style="font-weight: bolder;color: #00C4A4;font-size:large;">2020-06-25 19:57:30  2020-06-25 19:57:30  2020-06-25 19:57:30</span></marquee>
+		</button>
+    </tr>
+		
+	<tr>
+		<td align="middle" colspan="3">
+		<button onclick="javascript:window.location.href='https://not-my.life/qr.html'" style="width:130px;height:35px;solid;box-shadow: 2px 2px 2px #b5b5b5;
+		border-radius:3px;color:white;background-color: #59bea7;outline:none;border-width:0px;font-size: small;font-weight: bold;">前往个人二维码</button>
+		</td>
+	</tr>
+	<tr>
+			<td align="center" colspan="3"><img src="https://not-my.life/logo.jpg" width=70; height=70;></td>
+			
+	</tr>		
+			<td>
+				<div style="line-height: 5px;"><br></div>
+			</td>
+</table>
+	</div>
+
+</body>
+</html>
+
+<script>
+	function editName()
+	{
+	var newname=prompt("今天叫啥名呢？","Jane Doe");
+		if (newname!=null && newname!=""){
+		    document.getElementById("name").innerHTML=newname;
+		}
+	}
+	
+	function changeDate()
+	{
+		mydate=new Date()
+		var time = new String(mydate.getFullYear()+"-"+String(mydate.getMonth()+1)+"-"+mydate.getUTCDate()+' '+String(mydate.getUTCHours()+8)+":"+mydate.getUTCMinutes()+":"+mydate.getUTCSeconds())
+	document.getElementById("date").innerHTML=time+"  "+time+"  "+time
+	}
+	
+	function load()
+	{
+	changeDate()
+	}
+	
+	function changeType()
+	{
+		var userTypes=["本科生","研究生（硕士）","研究生（博士）"];
+		
+		element=document.getElementById('type');
+		direction=document.getElementById('direction');
+		for (var i=0;i<=2;i++){
+			if (i==2){
+				element.innerHTML=userTypes[0];
+				direction.innerHTML="本科用户，出校登记成功！";
+				break;
+			}
+			if (element.innerHTML.match(userTypes[i]))
+			{
+				element.innerHTML=userTypes[i+1];
+				direction.innerHTML="研究生用户，出校登记成功！";
+				break;
+		}
+	}
+	}
+	
+	
+	function inOrOut()
+	{
+		type=document.getElementById('type');
+		direction=document.getElementById('direction');
+		if (direction.innerHTML.match("入")&&type.innerHTML.match("本科生"))
+		{
+			direction.innerHTML="本科用户，出校登记成功！";
+		}
+		else if (direction.innerHTML.match("入")&&(type.innerHTML.match("研究生（硕士）")||type.innerHTML.match("研究生（博士）")))
+		{
+			direction.innerHTML="研究生用户，出校登记成功！";
+		}
+		else if (direction.innerHTML.match("出")&&type.innerHTML.match("本科生"))
+		{
+			direction.innerHTML="本科用户，入校登记成功！";
+		}
+		else if (type.innerHTML.match("研究生（硕士）")||type.innerHTML.match("研究生（博士）"))
+		{
+			direction.innerHTML="研究生用户，入校登记成功！";
+		}
+		else{
+			direction.innerHTML="本科用户，入校登记成功！"
+		}
+	}
+	
+	</script>

@@ -15,7 +15,7 @@
 <br>
 <br> -->
 <button onclick="inOrOut()" style="background:transparent;outline:none;border-width:0px;">
-<span id= "direction" style="font-weight: bold; padding-left: 5px; color: green; font-size: 24px; width: 100%; display: inline-block;"> 本科用户，入校登记成功！</span>
+<span id= "direction" style="font-weight: bold; padding-left: 5px; color: green; font-size: 24px; width: 100%; display: inline-block;"> 本科用户，入校授权有效！</span>
 </button>
 <br>
 <br>
@@ -91,13 +91,13 @@
 		for (var i=0;i<=2;i++){
 			if (i==2){
 				element.innerHTML=userTypes[0];
-				direction.innerHTML="本科用户，出校登记成功！";
+				direction.innerHTML="本科用户，出校授权有效！";
 				break;
 			}
 			if (element.innerHTML.match(userTypes[i]))
 			{
 				element.innerHTML=userTypes[i+1];
-				direction.innerHTML="研究生用户，出校登记成功！";
+				direction.innerHTML="研究生用户，出校授权有效！";
 				break;
 		}
 	}
@@ -110,22 +110,22 @@
 		direction=document.getElementById('direction');
 		if (direction.innerHTML.match("入")&&type.innerHTML.match("本科生"))
 		{
-			direction.innerHTML="本科用户，出校登记成功！";
+			direction.innerHTML="本科用户，出校授权有效！";
 		}
 		else if (direction.innerHTML.match("入")&&(type.innerHTML.match("研究生（硕士）")||type.innerHTML.match("研究生（博士）")))
 		{
-			direction.innerHTML="研究生用户，出校登记成功！";
+			direction.innerHTML="研究生用户，出校授权有效！";
 		}
 		else if (direction.innerHTML.match("出")&&type.innerHTML.match("本科生"))
 		{
-			direction.innerHTML="本科用户，入校登记成功！";
+			direction.innerHTML="本科用户，入校授权有效！";
 		}
 		else if (type.innerHTML.match("研究生（硕士）")||type.innerHTML.match("研究生（博士）"))
 		{
-			direction.innerHTML="研究生用户，入校登记成功！";
+			direction.innerHTML="研究生用户，入校授权有效！";
 		}
 		else{
-			direction.innerHTML="本科用户，入校登记成功！"
+			direction.innerHTML="本科用户，入校授权有效！"
 		}
 	}
 	

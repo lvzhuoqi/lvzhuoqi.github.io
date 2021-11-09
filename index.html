@@ -90,13 +90,13 @@
 		for (var i=0;i<=2;i++){
 			if (i==2){
 				element.innerHTML=userTypes[0];
-				direction.innerHTML="本科用户，出校授权有效！";
+				direction.innerHTML="本科用户，出校登记有效！";
 				break;
 			}
 			if (element.innerHTML.match(userTypes[i]))
 			{
 				element.innerHTML=userTypes[i+1];
-				direction.innerHTML="研究生用户，出校授权有效！";
+				direction.innerHTML="研究生用户，出校登记有效！";
 				break;
 		}
 	}
@@ -109,11 +109,11 @@
 		direction=document.getElementById('direction');
 		if (direction.innerHTML.match("入")&&type.innerHTML.match("本科生"))
 		{
-			direction.innerHTML="本科用户，出校授权有效！";
+			direction.innerHTML="本科用户，出校登记有效！";
 		}
 		else if (direction.innerHTML.match("入")&&(type.innerHTML.match("研究生（硕士）")||type.innerHTML.match("研究生（博士）")))
 		{
-			direction.innerHTML="研究生用户，出校授权有效！";
+			direction.innerHTML="研究生用户，出校登记有效！";
 		}
 		else if (direction.innerHTML.match("出")&&type.innerHTML.match("本科生"))
 		{
